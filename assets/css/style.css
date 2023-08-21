@@ -1,0 +1,4427 @@
+
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+
+a {
+  color: #ffc451;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffd584;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #ffc451;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  color: #151515;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #151515;
+}
+
+.back-to-top:hover i {
+  color: #ffc451;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #151515;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 0px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffc451;
+  border-top-color: #151515;
+  border-bottom-color: #151515;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 0px 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+
+#header .logo {
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#header .logo a {
+  color: #fff;
+}
+
+#header .logo a span {
+  color: #ffc451;
+}
+
+#header .logo img {
+  max-height: 100px;
+}
+
+/*--------------------------------------------------------------
+#  Message Button
+--------------------------------------------------------------*/
+.get-started-btn {
+  color: #fff;
+  border-radius: 4px;
+  padding: 7px 25px 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+  border: 2px solid #ffc451;
+}
+
+.get-started-btn:hover {
+  background: #ffc451;
+  color: #343a40;
+}
+
+@media (max-width: 992px) {
+  .get-started-btn {
+    padding: 7px 20px 8px 20px;
+    margin-right: 15px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.navbar {
+  padding: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: #ffc451;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  font-size: 14px;
+  text-transform: none;
+  color: #151515;
+  font-weight: 400;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  background-color: #ffc451;
+}
+
+.navbar .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover>ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #151515;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile .active,
+.navbar-mobile li:hover>a {
+  color: #151515;
+  background-color: #ffc451;
+}
+
+.navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 15px;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+  color: #151515;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar-mobile .dropdown ul a:hover,
+.navbar-mobile .dropdown ul .active:hover,
+.navbar-mobile .dropdown ul li:hover>a {
+  background-color: #ffc451;
+}
+
+.navbar-mobile .dropdown>.dropdown-active {
+  display: block;
+}
+
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/hero-bg.jpg") top center;
+  background-size: cover;
+  position: relative;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero .container {
+  position: relative;
+  padding-top: 74px;
+  text-align: center;
+}
+
+#hero h1 {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 64px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+#hero h1 span {
+  color: #ffc451;
+}
+
+#hero h2 {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 10px 0 0 0;
+  font-size: 24px;
+}
+
+#hero .icon-box {
+  padding: 30px 20px;
+  transition: ease-in-out 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 100%;
+  text-align: center;
+}
+
+
+
+#hero .icon-box h3 {
+  font-weight: 700;
+  margin: 10px 0 0 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#hero #boxes a {
+  color: #fff;
+  transition: ease-in-out 0.1s;
+}
+
+#hero #boxes a:hover {
+  color: #ffc451;
+}
+
+#hero .icon-box:hover {
+  border-color: #ffc451;
+}
+
+@media (min-width: 1024px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: auto;
+  }
+
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #hero h2 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+/*--------------------------------------------------------------
+# movie_theaters
+--------------------------------------------------------------*/
+
+#theater {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/movie_theaters/bg.jpg") top center;
+  
+  background-size: cover;
+  position: relative;
+}
+
+#theater:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#theater .container {
+  position: relative;
+  padding-top: 74px;
+  text-align: center;
+}
+
+#theater h1 {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 64px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+#theater h1 span {
+  color: #ffc451;
+}
+
+#theater h2 {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 10px 0 0 0;
+  font-size: 24px;
+}
+
+#theater .icon-box {
+  padding: 30px 20px;
+  transition: ease-in-out 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 100%;
+  text-align: center;
+}
+
+
+#theater .icon-box h3 {
+  font-weight: 700;
+  margin: 10px 0 0 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+#theater #t-box   .link {
+  color: #ffc451;
+  transition: ease-in-out 0.1s;
+}
+
+#theater #t-box   .link:hover {
+  color: #ffF;
+}
+
+#theater .icon-box:hover {
+  border-color: #ffc451;
+}
+
+@media (min-width: 1024px) {
+  #theater {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  #theater {
+    height: auto;
+  }
+
+  #theater h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #theater h2 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+/*--------------------------------------------------------------
+# Amusement PARK
+--------------------------------------------------------------*/
+
+#park {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/amusement_park/bg.jpg") top center;
+  
+  background-size: cover;
+  position: relative;
+}
+
+#park:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#park .container {
+  position: relative;
+  padding-top: 74px;
+  text-align: center;
+}
+
+#park h1 {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 64px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+#park h1 span {
+  color: #ffc451;
+}
+
+#park h2 {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 10px 0 0 0;
+  font-size: 24px;
+}
+
+#park .icon-box {
+  padding: 30px 20px;
+  transition: ease-in-out 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 100%;
+  text-align: center;
+}
+
+
+#park .icon-box h3 {
+  font-weight: 700;
+  margin: 10px 0 0 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+#park #p-box   .link {
+  color: #ffc451;
+  transition: ease-in-out 0.1s;
+}
+
+#park #p-box   .link:hover {
+  color: #ffF;
+}
+
+#park .icon-box:hover {
+  border-color: #ffc451;
+}
+
+@media (min-width: 1024px) {
+  #park {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  #park {
+    height: auto;
+  }
+
+  #park h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #park h2 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+/*--------------------------------------------------------------
+# Events
+--------------------------------------------------------------*/
+
+#event_body{
+  background: url("../img/event/bg.jpg") top center;
+}
+
+#event {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  
+}
+#event *{
+  margin: 0;
+  padding: 0;
+}
+#event .heading{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  font-size: 40px;
+  padding-top: 50px;
+  border-bottom: 1px solid;
+  border-color: #ffc451;
+  position: relative;
+ }
+#event .heading .heading_span{
+  color: #ffc451;
+  font-size: 40px;
+}
+
+  #event body {
+      height: 100vh;
+      background-color: #ffc451;
+  }
+
+  #event .container {
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+
+  #event .card {
+      position: relative;
+      width: calc(25% - 40px);
+      height: auto;
+      margin: 20px;
+      box-shadow: 5px 5px 20px black;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  #event .poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      transition: .5s;
+      
+  }
+
+  #event .intro {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+      background: rgba(27, 27, 27, 0.795);
+      color: white;
+      transition: .5s;
+      opacity: 0;
+      transform: translateY(100%);
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+  #event .card .intro .inner_poster{
+    margin-left: 25%;
+    margin-top: 25px;
+    width: 100px;
+   }
+   
+  #event p{
+      font-size: 15px;
+      transition: opacity 0.3s;
+     
+
+  }
+  #event span{
+    font-size: 15px;
+    color: #ffc451;
+    padding-right: 5px;
+    transition: opacity 0.3s;
+}
+  #event .buy-button {
+      background-color: transparent;
+      border: 2px solid #ffc451;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      
+  }
+
+  #event .buy-button:hover {
+    background-color: #ffc451;
+      color: #343a40;
+  }
+
+  #event .card:hover {
+      cursor: pointer;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  #event .card:hover .intro {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  #event .card:hover p {
+      opacity: 1;
+  }
+
+  #event .card:hover .poster {
+      transform: scale(1.1) rotate(-3deg);
+  }
+
+  @media (max-width: 768px) {
+      #event .container .card {
+          width: calc(50% - 40px);
+      }
+
+
+      #event .container p {
+          font-size: 24px;
+      }
+      
+  }
+  @media (max-width: 480px) {
+      #event .container .card {
+          width: calc(100% - 40px);
+      }
+      #event .container p {
+          font-size: 20px;
+      }
+
+  }
+
+/*--------------------------------------------------------------
+# Cricket Match
+--------------------------------------------------------------*/
+
+#cricket {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/cricket/bg.jpg") top center;
+  background-size: cover;
+  position: relative;
+}
+
+#cricket:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#cricket .container {
+  position: relative;
+  padding-top: 74px;
+  text-align: center;
+}
+
+#cricket h1 {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 64px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+#cricket h1 span {
+  color: #ffc451;
+}
+#cricket h2 {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 15px 0 0 0;
+  font-size: 30px;
+}
+#cricket h2 span {
+  color: #ffc451;
+}
+
+
+
+
+@media (min-width: 1024px) {
+  #cricket {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  #cricket {
+    height: auto;
+  }
+
+  #cricket h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #cricket h2 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+/*--------------------------------------------------------------
+# Patners
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-title {
+  padding-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 5px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #ffde9e;
+  margin: 4px 10px;
+}
+
+.section-title p {
+  margin: 0;
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #151515;
+}
+.partners {
+  padding-top: 20px;
+}
+
+.partners .swiper-slide img {
+  opacity: 0.5;
+  transition: 0.3s;
+  filter: grayscale(100);
+}
+
+.partners .swiper-slide img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+.partners .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.partners .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  background-color: #ddd;
+}
+
+.partners .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #ffc451;
+}
+/*--------------------------------------------------------------
+# Atrium Cinema
+--------------------------------------------------------------*/
+#atrium_body{
+  background: url("../img/movie_theaters/atrium/bg.jpg") top center;
+}
+
+
+@media (max-width: 767px) {
+  .carousel-indicators {
+    display: none;
+  }
+  .carousel-inner img {
+    width: 100%;
+    height: auto;
+  }
+  
+}
+#atrium {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  
+}
+#atrium *{
+  margin: 0;
+  padding: 0;
+}
+#atrium .heading{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  
+  border-bottom: 1px solid;
+  border-color: #ffc451;
+  position: relative;
+ }
+ #atrium .ticket{
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translateY(-50%);
+  padding-top: 35px;
+}
+  #atrium body {
+      height: 100vh;
+      background-color: #ffc451;
+  }
+
+  #atrium .container {
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+
+  #atrium .card {
+      position: relative;
+      width: calc(25% - 40px);
+      height: auto;
+      margin: 20px;
+      box-shadow: 5px 5px 20px black;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  #atrium .poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      transition: .5s;
+      
+  }
+
+  #atrium .intro {
+      display: flex;
+      flex-direction: column;
+      
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+      background: rgba(27, 27, 27, 0.795);
+      color: white;
+      transition: .5s;
+      opacity: 0;
+      transform: translateY(100%);
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+
+  #atrium h1 {
+    display: flex;
+      font-size: 30px;
+      color: #ffc451;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-grow: 1;
+  }
+
+  #atrium p{
+      font-size: 15px;
+      transition: opacity 0.3s;
+     
+
+  }
+  #atrium span{
+    font-size: 15px;
+    color: #ffc451;
+    padding-right: 5px;
+    transition: opacity 0.3s;
+}
+  #atrium .buy-button {
+      background-color: transparent;
+      border: 2px solid #ffc451;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      
+  }
+
+  #atrium .buy-button:hover {
+    background-color: #ffc451;
+      color: #343a40;
+  }
+
+  #atrium .card:hover {
+      cursor: pointer;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  #atrium .card:hover .intro {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  #atrium .card:hover p {
+      opacity: 1;
+  }
+
+  #atrium .card:hover .poster {
+      transform: scale(1.1) rotate(-3deg);
+  }
+
+  @media (max-width: 768px) {
+      #atrium .container .card {
+          width: calc(50% - 40px);
+      }
+
+      #atrium .container h1 {
+          font-size: 28px;
+      }
+
+      #atrium .container p {
+          font-size: 24px;
+      }
+      #atrium .ticket span{
+        font-size: 10px;
+      }
+      #atrium .ticket p{
+        font-size: 10px;
+      }
+      #atrium .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  @media (max-width: 480px) {
+      #atrium .container .card {
+          width: calc(100% - 40px);
+      }
+
+      #atrium .container h1 {
+          font-size: 27px;
+      }
+
+      #atrium .container p {
+          font-size: 20px;
+      }
+      #atrium .ticket span{
+        font-size: 10px;
+      }
+      #atrium .ticket p{
+        font-size: 10px;
+      }
+      #atrium .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  /*--------------------------------------------------------------
+# Cinepax Cinema
+--------------------------------------------------------------*/
+#cinepax_body{
+  background: url("../img/movie_theaters/cinepax/bg.jpg") top center;
+}
+#cinepax {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  
+}
+#cinepax *{
+  margin: 0;
+  padding: 0;
+}
+#cinepax .heading{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  
+  border-bottom: 1px solid;
+  border-color: #ffc451;
+  position: relative;
+ }
+ #cinepax .ticket{
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translateY(-50%);
+  padding-top: 35px;
+
+}
+  #cinepax body {
+      height: 100vh;
+      background-color: #ffc451;
+  }
+
+  #cinepax .container {
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+
+  #cinepax .card {
+      position: relative;
+      width: calc(25% - 40px);
+      height: auto;
+      margin: 20px;
+      box-shadow: 5px 5px 20px black;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  #cinepax .poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      transition: .5s;
+      
+  }
+
+  #cinepax .intro {
+      display: flex;
+      flex-direction: column;
+      
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+      background: rgba(27, 27, 27, 0.795);
+      color: white;
+      transition: .5s;
+      opacity: 0;
+      transform: translateY(100%);
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+
+  #cinepax h1 {
+    display: flex;
+      font-size: 30px;
+      color: #ffc451;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-grow: 1;
+  }
+
+  #cinepax p{
+      font-size: 15px;
+      transition: opacity 0.3s;
+     
+
+  }
+  #cinepax span{
+    font-size: 15px;
+    color: #ffc451;
+    padding-right: 5px;
+    transition: opacity 0.3s;
+}
+  #cinepax .buy-button {
+      background-color: transparent;
+      border: 2px solid #ffc451;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      
+  }
+
+  #cinepax .buy-button:hover {
+    background-color: #ffc451;
+      color: #343a40;
+  }
+
+  #cinepax .card:hover {
+      cursor: pointer;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  #cinepax .card:hover .intro {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  #cinepax .card:hover p {
+      opacity: 1;
+  }
+
+  #cinepax .card:hover .poster {
+      transform: scale(1.1) rotate(-3deg);
+  }
+
+  @media (max-width: 768px) {
+      #cinepax .container .card {
+          width: calc(50% - 40px);
+      }
+
+      #cinepax .container h1 {
+          font-size: 28px;
+      }
+
+      #cinepax .container p {
+          font-size: 24px;
+      }
+      #cinepax .ticket span{
+        font-size: 10px;
+      }
+      #cinepax .ticket p{
+        font-size: 10px;
+      }
+      #cinepax .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  @media (max-width: 480px) {
+      #cinepax .container .card {
+          width: calc(100% - 40px);
+      }
+
+      #cinepax .container h1 {
+          font-size: 27px;
+      }
+
+      #cinepax .container p {
+          font-size: 20px;
+      }
+      #cinepax .ticket span{
+        font-size: 10px;
+      }
+      #cinepax .ticket p{
+        font-size: 10px;
+      }
+      #cinepax .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  /*--------------------------------------------------------------
+# Nueplex Cinema
+--------------------------------------------------------------*/
+#nueplex_body{
+  background: url("../img/movie_theaters/nueplex/bg.jpg") top center;
+}
+#nueplex {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  
+}
+#nueplex *{
+  margin: 0;
+  padding: 0;
+}
+#nueplex .heading{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  
+  border-bottom: 1px solid;
+  border-color: #ffc451;
+  position: relative;
+ }
+ #nueplex .ticket{
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translateY(-50%);
+  padding-top: 35px;
+
+}
+  #nueplex body {
+      height: 100vh;
+      background-color: #ffc451;
+  }
+
+  #nueplex .container {
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+
+  #nueplex .card {
+      position: relative;
+      width: calc(25% - 40px);
+      height: auto;
+      margin: 20px;
+      box-shadow: 5px 5px 20px black;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  #nueplex .poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      transition: .5s;
+      
+  }
+
+  #nueplex .intro {
+      display: flex;
+      flex-direction: column;
+      
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+      background: rgba(27, 27, 27, 0.795);
+      color: white;
+      transition: .5s;
+      opacity: 0;
+      transform: translateY(100%);
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+
+  #nueplex h1 {
+    display: flex;
+      font-size: 30px;
+      color: #ffc451;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-grow: 1;
+  }
+
+  #nueplex p{
+      font-size: 15px;
+      transition: opacity 0.3s;
+     
+
+  }
+  #nueplex span{
+    font-size: 15px;
+    color: #ffc451;
+    padding-right: 5px;
+    transition: opacity 0.3s;
+}
+  #nueplex .buy-button {
+      background-color: transparent;
+      border: 2px solid #ffc451;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      
+  }
+
+  #nueplex .buy-button:hover {
+    background-color: #ffc451;
+      color: #343a40;
+  }
+
+  #nueplex .card:hover {
+      cursor: pointer;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  #nueplex .card:hover .intro {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  #nueplex .card:hover p {
+      opacity: 1;
+  }
+
+  #nueplex .card:hover .poster {
+      transform: scale(1.1) rotate(-3deg);
+  }
+
+  @media (max-width: 768px) {
+      #nueplex .container .card {
+          width: calc(50% - 40px);
+      }
+
+      #nueplex .container h1 {
+          font-size: 28px;
+      }
+
+      #nueplex .container p {
+          font-size: 24px;
+      }
+      #nueplex .ticket span{
+        font-size: 10px;
+      }
+      #nueplex .ticket p{
+        font-size: 10px;
+      }
+      #nueplex .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  @media (max-width: 480px) {
+      #nueplex .container .card {
+          width: calc(100% - 40px);
+      }
+
+      #nueplex .container h1 {
+          font-size: 27px;
+      }
+
+      #nueplex .container p {
+          font-size: 20px;
+      }
+      #nueplex .ticket span{
+        font-size: 10px;
+      }
+      #nueplex .ticket p{
+        font-size: 10px;
+      }
+      #nueplex .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  /*--------------------------------------------------------------
+# Mega Multiplex Cinema
+--------------------------------------------------------------*/
+#megamultiplex_body{
+  background: url("../img/movie_theaters/megamultiplex/bg.jpg") top center;
+}
+#megamultiplex {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  
+}
+#megamultiplex *{
+  margin: 0;
+  padding: 0;
+}
+#megamultiplex .heading{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  
+  border-bottom: 1px solid;
+  border-color: #ffc451;
+  position: relative;
+ }
+ #megamultiplex .ticket{
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translateY(-50%);
+  padding-top: 35px;
+
+}
+  #megamultiplex body {
+      height: 100vh;
+      background-color: #ffc451;
+  }
+
+  #megamultiplex .container {
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+
+  #megamultiplex .card {
+      position: relative;
+      width: calc(25% - 40px);
+      height: auto;
+      margin: 20px;
+      box-shadow: 5px 5px 20px black;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  #megamultiplex .poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      transition: .5s;
+      
+  }
+
+  #megamultiplex .intro {
+      display: flex;
+      flex-direction: column;
+      
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+      background: rgba(27, 27, 27, 0.795);
+      color: white;
+      transition: .5s;
+      opacity: 0;
+      transform: translateY(100%);
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+
+  #megamultiplex h1 {
+    display: flex;
+      font-size: 30px;
+      color: #ffc451;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-grow: 1;
+  }
+
+  #megamultiplex p{
+      font-size: 15px;
+      transition: opacity 0.3s;
+     
+
+  }
+  #megamultiplex span{
+    font-size: 15px;
+    color: #ffc451;
+    padding-right: 5px;
+    transition: opacity 0.3s;
+}
+  #megamultiplex .buy-button {
+      background-color: transparent;
+      border: 2px solid #ffc451;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      
+  }
+
+  #megamultiplex .buy-button:hover {
+    background-color: #ffc451;
+      color: #343a40;
+  }
+
+  #megamultiplex .card:hover {
+      cursor: pointer;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  #megamultiplex .card:hover .intro {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  #megamultiplex .card:hover p {
+      opacity: 1;
+  }
+
+  #megamultiplex .card:hover .poster {
+      transform: scale(1.1) rotate(-3deg);
+  }
+
+  @media (max-width: 768px) {
+      #megamultiplex .container .card {
+          width: calc(50% - 40px);
+      }
+
+      #megamultiplex .container h1 {
+          font-size: 28px;
+      }
+
+      #megamultiplex .container p {
+          font-size: 24px;
+      }
+      #megamultiplex .ticket span{
+        font-size: 10px;
+      }
+      #megamultiplex .ticket p{
+        font-size: 10px;
+      }
+      #megamultiplex .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  @media (max-width: 480px) {
+      #megamultiplex .container .card {
+          width: calc(100% - 40px);
+      }
+
+      #megamultiplex .container h1 {
+          font-size: 27px;
+      }
+
+      #megamultiplex .container p {
+          font-size: 20px;
+      }
+      #megamultiplex .ticket span{
+        font-size: 10px;
+      }
+      #megamultiplex .ticket p{
+        font-size: 10px;
+      }
+      #megamultiplex .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+   /*--------------------------------------------------------------
+# The Arena Cinema
+--------------------------------------------------------------*/
+#arena_body{
+  background: url("../img/movie_theaters/arena/bg.jpg") top center;
+}
+#arena {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  
+}
+#arena *{
+  margin: 0;
+  padding: 0;
+}
+#arena .heading{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  
+  border-bottom: 1px solid;
+  border-color: #ffc451;
+  position: relative;
+ }
+ #arena .ticket{
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translateY(-50%);
+  padding-top: 35px;
+
+}
+  #arena body {
+      height: 100vh;
+      background-color: #ffc451;
+  }
+
+  #arena .container {
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+
+  #arena .card {
+      position: relative;
+      width: calc(25% - 40px);
+      height: auto;
+      margin: 20px;
+      box-shadow: 5px 5px 20px black;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  #arena .poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      transition: .5s;
+      
+  }
+
+  #arena .intro {
+      display: flex;
+      flex-direction: column;
+      
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+      background: rgba(27, 27, 27, 0.795);
+      color: white;
+      transition: .5s;
+      opacity: 0;
+      transform: translateY(100%);
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+
+  #arena h1 {
+    display: flex;
+      font-size: 30px;
+      color: #ffc451;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-grow: 1;
+  }
+
+  #arena p{
+      font-size: 15px;
+      transition: opacity 0.3s;
+     
+
+  }
+  #arena span{
+    font-size: 15px;
+    color: #ffc451;
+    padding-right: 5px;
+    transition: opacity 0.3s;
+}
+  #arena .buy-button {
+      background-color: transparent;
+      border: 2px solid #ffc451;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      
+  }
+
+  #arena .buy-button:hover {
+    background-color: #ffc451;
+      color: #343a40;
+  }
+
+  #arena .card:hover {
+      cursor: pointer;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  #arena .card:hover .intro {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  #arena .card:hover p {
+      opacity: 1;
+  }
+
+  #arena .card:hover .poster {
+      transform: scale(1.1) rotate(-3deg);
+  }
+
+  @media (max-width: 768px) {
+      #arena .container .card {
+          width: calc(50% - 40px);
+      }
+
+      #arena .container h1 {
+          font-size: 28px;
+      }
+
+      #arena .container p {
+          font-size: 24px;
+      }
+      #arena .ticket span{
+        font-size: 10px;
+      }
+      #arena .ticket p{
+        font-size: 10px;
+      }
+      #arena .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  @media (max-width: 480px) {
+      #arena .container .card {
+          width: calc(100% - 40px);
+      }
+
+      #arena .container h1 {
+          font-size: 27px;
+      }
+
+      #arena .container p {
+          font-size: 20px;
+      }
+      #arena .ticket span{
+        font-size: 10px;
+      }
+      #arena .ticket p{
+        font-size: 10px;
+      }
+      #arena .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+   /*--------------------------------------------------------------
+# Raiha Cinegold Plex Cinema
+--------------------------------------------------------------*/
+#cinegold_body{
+  background: url("../img/movie_theaters/cinegold/bg.jpg") top center;
+}
+#cinegold {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  
+}
+#cinegold *{
+  margin: 0;
+  padding: 0;
+}
+#cinegold .heading{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  
+  border-bottom: 1px solid;
+  border-color: #ffc451;
+  position: relative;
+ }
+ #cinegold .ticket{
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translateY(-50%);
+  padding-top: 35px;
+
+}
+  #cinegold body {
+      height: 100vh;
+      background-color: #ffc451;
+  }
+
+  #cinegold .container {
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+
+  #cinegold .card {
+      position: relative;
+      width: calc(25% - 40px);
+      height: auto;
+      margin: 20px;
+      box-shadow: 5px 5px 20px black;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  #cinegold .poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      transition: .5s;
+      
+  }
+
+  #cinegold .intro {
+      display: flex;
+      flex-direction: column;
+      
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+      background: rgba(27, 27, 27, 0.795);
+      color: white;
+      transition: .5s;
+      opacity: 0;
+      transform: translateY(100%);
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+
+  #cinegold h1 {
+    display: flex;
+      font-size: 30px;
+      color: #ffc451;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-grow: 1;
+  }
+
+  #cinegold p{
+      font-size: 15px;
+      transition: opacity 0.3s;
+     
+
+  }
+  #cinegold span{
+    font-size: 15px;
+    color: #ffc451;
+    padding-right: 5px;
+    transition: opacity 0.3s;
+}
+  #cinegold .buy-button {
+      background-color: transparent;
+      border: 2px solid #ffc451;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      
+  }
+
+  #cinegold .buy-button:hover {
+    background-color: #ffc451;
+      color: #343a40;
+  }
+
+  #cinegold .card:hover {
+      cursor: pointer;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  #cinegold .card:hover .intro {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  #cinegold .card:hover p {
+      opacity: 1;
+  }
+
+  #cinegold .card:hover .poster {
+      transform: scale(1.1) rotate(-3deg);
+  }
+
+  @media (max-width: 768px) {
+      #cinegold .container .card {
+          width: calc(50% - 40px);
+      }
+
+      #cinegold .container h1 {
+          font-size: 28px;
+      }
+
+      #cinegold .container p {
+          font-size: 24px;
+      }
+      #cinegold .ticket span{
+        font-size: 10px;
+      }
+      #cinegold .ticket p{
+        font-size: 10px;
+      }
+      #cinegold .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  @media (max-width: 480px) {
+      #cinegold .container .card {
+          width: calc(100% - 40px);
+      }
+
+      #cinegold .container h1 {
+          font-size: 27px;
+      }
+
+      #cinegold .container p {
+          font-size: 20px;
+      }
+      #cinegold .ticket span{
+        font-size: 10px;
+      }
+      #cinegold .ticket p{
+        font-size: 10px;
+      }
+      #cinegold .ticket{
+        right: 0;
+        padding-top: 35px;
+      }
+  }
+  /*--------------------------------------------------------------
+# Atlantis park 
+--------------------------------------------------------------*/
+#atlantis_body {
+  background: url("../img/amusement_park/atlantis/bg.png") top center;
+}
+
+#atlantis {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+}
+
+#atlantis * {
+  margin: 0;
+  padding: 0;
+}
+
+#atlantis .heading {
+  display: flex;
+  align-items: center; 
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  margin-top: 50px;
+  position: relative;
+}
+
+#atlantis .heading img {
+  width: 200px; 
+  margin-right: 10px; 
+}
+
+#atlantis body {
+  height: 100vh;
+  background-color: #ffc451;
+}
+
+#atlantis .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#atlantis .card {
+  width: calc(100% - 40px);
+  height: 400px;
+  margin: 20px;
+  box-shadow: 5px 5px 20px black;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+#atlantis .poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+#atlantis .intro {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background: rgba(27, 27, 27, 0.795);
+  color: white;
+  opacity: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: opacity 0.3s;
+  text-align: center;
+}
+#atlantis .card .intro .inner_poster{
+  padding-bottom: 20px;
+  width: 200px;
+ }
+#atlantis span {
+  font-size: 20px;
+  color: #ffc451;
+  padding-right: 5px;
+}
+
+#atlantis p {
+  font-size: 20px;
+  color: #fff;
+
+}
+
+#atlantis .buy-button {
+  background-color: transparent;
+  border: 2px solid #ffc451;
+  color: white;
+  margin-top: 10px;
+  padding: 10px 50px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+#atlantis .buy-button:hover {
+  background-color: #ffc451;
+  color: #343a40;
+}
+
+#atlantis .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#atlantis .card:hover .intro {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #atlantis .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #atlantis .container h1 {
+    font-size: 28px;
+  }
+
+  #atlantis .container p {
+    font-size: 24px;
+  }
+
+  #atlantis .bio span {
+    font-size: 20px;
+  }
+
+  #atlantis .bio p {
+    font-size: 20px;
+  }
+
+  #atlantis .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+}
+
+  #atlantis .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #atlantis .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  #atlantis .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #atlantis .container h1 {
+    font-size: 27px;
+  }
+
+  #atlantis .container p {
+    font-size: 20px;
+  }
+
+  #atlantis .bio span {
+    font-size: 15px;
+  }
+
+  #atlantis .bio p {
+    font-size: 15px;
+  }
+
+  #atlantis .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+
+  #atlantis .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #atlantis .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+  }
+}
+/*--------------------------------------------------------------
+# Chunky Monkey park 
+--------------------------------------------------------------*/
+#chunkymonkey_body {
+  background: url("../img/amusement_park/chunkymonkey/bg.png") top center;
+}
+
+#chunkymonkey {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+}
+
+#chunkymonkey * {
+  margin: 0;
+  padding: 0;
+}
+
+#chunkymonkey .heading {
+  display: flex;
+  align-items: center; 
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  margin-top: 50px;
+  position: relative;
+}
+
+#chunkymonkey .heading img {
+  width: 150px; 
+  margin-right: 10px; 
+}
+
+#chunkymonkey body {
+  height: 100vh;
+  background-color: #ffc451;
+}
+
+#chunkymonkey .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#chunkymonkey .card {
+  width: calc(100% - 40px);
+  height: 400px;
+  margin: 20px;
+  box-shadow: 5px 5px 20px black;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+#chunkymonkey .poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+#chunkymonkey .intro {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background: rgba(27, 27, 27, 0.795);
+  color: white;
+  opacity: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: opacity 0.3s;
+  text-align: center;
+}
+#chunkymonkey .card .intro .inner_poster{
+  padding-bottom: 20px;
+  width: 150px;
+ }
+#chunkymonkey span {
+  font-size: 20px;
+  color: #ffc451;
+  padding-right: 5px;
+}
+
+#chunkymonkey p {
+  font-size: 20px;
+  color: #fff;
+
+}
+
+#chunkymonkey .buy-button {
+  background-color: transparent;
+  border: 2px solid #ffc451;
+  color: white;
+  margin-top: 10px;
+  padding: 10px 50px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+#chunkymonkey .buy-button:hover {
+  background-color: #ffc451;
+  color: #343a40;
+}
+
+#chunkymonkey .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#chunkymonkey .card:hover .intro {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #chunkymonkey .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #chunkymonkey .container h1 {
+    font-size: 28px;
+  }
+
+  #chunkymonkey .container p {
+    font-size: 24px;
+  }
+
+  #chunkymonkey .bio span {
+    font-size: 20px;
+  }
+
+  #chunkymonkey .bio p {
+    font-size: 20px;
+  }
+
+  #chunkymonkey .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+}
+
+  #chunkymonkey .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #chunkymonkey .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  #chunkymonkey .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #chunkymonkey .container h1 {
+    font-size: 27px;
+  }
+
+  #chunkymonkey .container p {
+    font-size: 20px;
+  }
+
+  #chunkymonkey .bio span {
+    font-size: 15px;
+  }
+
+  #chunkymonkey .bio p {
+    font-size: 15px;
+  }
+
+  #chunkymonkey .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+
+  #chunkymonkey .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #chunkymonkey .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+  }
+}
+/*--------------------------------------------------------------
+# Port Grand 
+--------------------------------------------------------------*/
+#portgrand_body {
+  background: url("../img/amusement_park/portgrand/bg.png") top center;
+}
+
+#portgrand {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+}
+
+#portgrand * {
+  margin: 0;
+  padding: 0;
+}
+
+#portgrand .heading {
+  display: flex;
+  align-items: center; 
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  margin-top: 50px;
+  position: relative;
+}
+
+#portgrand .heading img {
+  width: 150px; 
+  margin-right: 10px; 
+}
+
+#portgrand body {
+  height: 100vh;
+  background-color: #ffc451;
+}
+
+#portgrand .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#portgrand .card {
+  width: calc(100% - 40px);
+  height: 400px;
+  margin: 20px;
+  box-shadow: 5px 5px 20px black;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+#portgrand .poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+#portgrand .intro {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background: rgba(27, 27, 27, 0.795);
+  color: white;
+  opacity: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: opacity 0.3s;
+  text-align: center;
+}
+#portgrand .card .intro .inner_poster{
+ padding-bottom: 20px;
+ width: 150px;
+}
+#portgrand span {
+  font-size: 20px;
+  color: #ffc451;
+  padding-right: 5px;
+}
+
+#portgrand p {
+  font-size: 20px;
+  color: #fff;
+
+}
+
+#portgrand .buy-button {
+  background-color: transparent;
+  border: 2px solid #ffc451;
+  color: white;
+  margin-top: 10px;
+  padding: 10px 50px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+#portgrand .buy-button:hover {
+  background-color: #ffc451;
+  color: #343a40;
+}
+
+#portgrand .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#portgrand .card:hover .intro {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #portgrand .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #portgrand .container h1 {
+    font-size: 28px;
+  }
+
+  #portgrand .container p {
+    font-size: 24px;
+  }
+
+  #portgrand .bio span {
+    font-size: 20px;
+  }
+
+  #portgrand .bio p {
+    font-size: 20px;
+  }
+
+  #portgrand .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+}
+
+  #portgrand .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #portgrand .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  #portgrand .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #portgrand .container h1 {
+    font-size: 27px;
+  }
+
+  #portgrand .container p {
+    font-size: 20px;
+  }
+
+  #portgrand .bio span {
+    font-size: 15px;
+  }
+
+  #portgrand .bio p {
+    font-size: 15px;
+  }
+
+  #portgrand .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+
+  #portgrand .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #portgrand .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+  }
+}
+/*--------------------------------------------------------------
+# Sindhbad's 
+--------------------------------------------------------------*/
+#sindbads_body {
+  background: url("../img/amusement_park/sinbads/bg.png") top center;
+}
+
+#sindbads {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+}
+
+#sindbads * {
+  margin: 0;
+  padding: 0;
+}
+
+#sindbads .heading {
+  display: flex;
+  align-items: center; 
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  margin-top: 50px;
+  position: relative;
+}
+
+#sindbads .heading img {
+  width: 150px; 
+  margin-right: 10px; 
+}
+
+#sindbads body {
+  height: 100vh;
+  background-color: #ffc451;
+}
+
+#sindbads .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#sindbads .card {
+  width: calc(100% - 40px);
+  height: 400px;
+  margin: 20px;
+  box-shadow: 5px 5px 20px black;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+#sindbads .poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+#sindbads .intro {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background: rgba(27, 27, 27, 0.795);
+  color: white;
+  opacity: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: opacity 0.3s;
+  text-align: center;
+}
+#sindbads .card .intro .inner_poster{
+ padding-bottom: 20px;
+ width: 150px;
+}
+#sindbads span {
+  font-size: 20px;
+  color: #ffc451;
+  padding-right: 5px;
+}
+
+#sindbads p {
+  font-size: 20px;
+  color: #fff;
+
+}
+
+#sindbads .buy-button {
+  background-color: transparent;
+  border: 2px solid #ffc451;
+  color: white;
+  margin-top: 10px;
+  padding: 10px 50px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+#sindbads .buy-button:hover {
+  background-color: #ffc451;
+  color: #343a40;
+}
+
+#sindbads .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#sindbads .card:hover .intro {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #sindbads .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #sindbads .container h1 {
+    font-size: 28px;
+  }
+
+  #sindbads .container p {
+    font-size: 24px;
+  }
+
+  #sindbads .bio span {
+    font-size: 20px;
+  }
+
+  #sindbads .bio p {
+    font-size: 20px;
+  }
+
+  #sindbads .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+}
+
+  #sindbads .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #sindbads .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  #sindbads .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #sindbads .container h1 {
+    font-size: 27px;
+  }
+
+  #sindbads .container p {
+    font-size: 20px;
+  }
+
+  #sindbads .bio span {
+    font-size: 15px;
+  }
+
+  #sindbads .bio p {
+    font-size: 15px;
+  }
+
+  #sindbads .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+
+  #sindbads .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #sindbads .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+  }
+}
+/*--------------------------------------------------------------
+# Bahria Adventureland
+--------------------------------------------------------------*/
+#bahria_body {
+  background: url("../img/amusement_park/bahria_adventure_land/bg.png") top center;
+}
+
+#bahria {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+}
+
+#bahria * {
+  margin: 0;
+  padding: 0;
+}
+
+#bahria .heading {
+  display: flex;
+  align-items: center; 
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  margin-top: 50px;
+  position: relative;
+}
+
+#bahria .heading img {
+  width: 120px; 
+  margin-right: 10px; 
+}
+
+#bahria body {
+  height: 100vh;
+  background-color: #ffc451;
+}
+
+#bahria .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#bahria .card {
+  width: calc(100% - 40px);
+  height: 400px;
+  margin: 20px;
+  box-shadow: 5px 5px 20px black;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+#bahria .poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+#bahria .intro {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background: rgba(27, 27, 27, 0.795);
+  color: white;
+  opacity: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: opacity 0.3s;
+  text-align: center;
+}
+#bahria .card .intro .inner_poster{
+ padding-bottom: 20px;
+ width: 120px;
+}
+#bahria span {
+  font-size: 20px;
+  color: #ffc451;
+  padding-right: 5px;
+}
+
+#bahria p {
+  font-size: 20px;
+  color: #fff;
+
+}
+
+#bahria .buy-button {
+  background-color: transparent;
+  border: 2px solid #ffc451;
+  color: white;
+  margin-top: 10px;
+  padding: 10px 50px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+#bahria .buy-button:hover {
+  background-color: #ffc451;
+  color: #343a40;
+}
+
+#bahria .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#bahria .card:hover .intro {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #bahria .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #bahria .container h1 {
+    font-size: 28px;
+  }
+
+  #bahria .container p {
+    font-size: 24px;
+  }
+
+  #bahria .bio span {
+    font-size: 20px;
+  }
+
+  #bahria .bio p {
+    font-size: 20px;
+  }
+
+  #bahria .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+}
+
+  #bahria .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #bahria .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  #bahria .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #bahria .container h1 {
+    font-size: 27px;
+  }
+
+  #bahria .container p {
+    font-size: 20px;
+  }
+
+  #bahria .bio span {
+    font-size: 15px;
+  }
+
+  #bahria .bio p {
+    font-size: 15px;
+  }
+
+  #bahria .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+
+  #bahria .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #bahria .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+  }
+}
+/*--------------------------------------------------------------
+# SUPER SPACE
+--------------------------------------------------------------*/
+#superspace_body {
+  background: url("../img/amusement_park/superspace/bg.png") top center;
+}
+
+#superspace {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+}
+
+#superspace * {
+  margin: 0;
+  padding: 0;
+}
+
+#superspace .heading {
+  display: flex;
+  align-items: center; 
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  margin-top: 50px;
+  position: relative;
+}
+
+#superspace .heading img {
+  width: 120px; 
+  margin-right: 10px; 
+}
+
+#superspace body {
+  height: 100vh;
+  background-color: #ffc451;
+}
+
+#superspace .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#superspace .card {
+  width: calc(100% - 40px);
+  height: 400px;
+  margin: 20px;
+  box-shadow: 5px 5px 20px black;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+#superspace .poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+#superspace .intro {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background: rgba(27, 27, 27, 0.795);
+  color: white;
+  opacity: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: opacity 0.3s;
+  text-align: center;
+}
+#superspace .card .intro .inner_poster{
+ padding-bottom: 20px;
+ width: 120px;
+}
+#superspace span {
+  font-size: 20px;
+  color: #ffc451;
+  padding-right: 5px;
+}
+
+#superspace p {
+  font-size: 20px;
+  color: #fff;
+
+}
+
+#superspace .buy-button {
+  background-color: transparent;
+  border: 2px solid #ffc451;
+  color: white;
+  margin-top: 10px;
+  padding: 10px 50px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+#superspace .buy-button:hover {
+  background-color: #ffc451;
+  color: #343a40;
+}
+
+#superspace .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#superspace .card:hover .intro {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #superspace .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #superspace .container h1 {
+    font-size: 28px;
+  }
+
+  #superspace .container p {
+    font-size: 24px;
+  }
+
+  #superspace .bio span {
+    font-size: 20px;
+  }
+
+  #superspace .bio p {
+    font-size: 20px;
+  }
+
+  #superspace .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+}
+
+  #superspace .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #superspace .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  #superspace .container .card {
+    width: calc(100% - 40px);
+  }
+
+  #superspace .container h1 {
+    font-size: 27px;
+  }
+
+  #superspace .container p {
+    font-size: 20px;
+  }
+
+  #superspace .bio span {
+    font-size: 15px;
+  }
+
+  #superspace .bio p {
+    font-size: 15px;
+  }
+
+  #superspace .bio {
+    right: 0;
+    padding-top: 35px;
+  }
+
+  #superspace .card .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #superspace .card .intro img {
+    width: 180px;
+    margin: 0 auto;
+  }
+}
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about .content h3 {
+  font-weight: 700;
+  font-size: 28px;
+  font-family: "Poppins", sans-serif;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  padding: 0 0 8px 26px;
+  position: relative;
+}
+
+.about .content ul i {
+  position: absolute;
+  font-size: 20px;
+  left: 0;
+  top: -3px;
+  color: #ffc451;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact .info {
+  width: 100%;
+  background: #fff;
+}
+
+.contact .info i {
+  font-size: 20px;
+  background: #ffc451;
+  color: #151515;
+  float: left;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #151515;
+}
+
+.contact .info p {
+  padding: 0 0 0 60px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #484848;
+}
+
+.contact .info .email,
+.contact .info .phone {
+  margin-top: 40px;
+}
+
+.contact .php-email-form {
+  width: 100%;
+  background: #fff;
+}
+
+.contact .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  border-color: #ffc451;
+}
+
+.contact .php-email-form input {
+  height: 44px;
+}
+
+.contact .php-email-form textarea {
+  padding: 10px 12px;
+}
+
+.contact .php-email-form button[type=submit] {
+  border: 2px solid #ffc451;
+  background: transparent;
+  
+  
+  border-radius: 6px;
+  padding: 10px 24px;
+  color: #151515;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  background: #ffc451;
+  color: #fff;
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Packages
+--------------------------------------------------------------*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+.con{
+  width: 100%;
+  min-height: 100vh;
+  background: url("../img/package-bg.jpg")
+}
+.con h2{
+  color: #ffc451;
+  font-size: 32px;
+  padding-top: 125px ;
+  text-align: center;
+}
+.price-row{
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+  grid-gap: 25px;
+}
+.price-col{
+  background: #151515;
+  padding: 10% 15%;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+}
+.price-col p{
+  font-size: 22px;
+}
+.price-col h3{
+  font-size: 40px;
+  margin: 20px 0 40px;
+  font-weight: 500;
+}
+.price-col h3 span{
+  font-size: 16px;
+}
+.price-col ul{
+  text-align: left;
+  margin: 20px 0;
+  color: #ddd;
+  list-style: none;
+}
+.price-col ul li{
+  margin: 15px 0;
+}
+.price-col ul li::before{
+  content: '\2022';
+  color: #ffc451;
+  font-weight: bold;
+  margin-right: 8px;
+}
+.price-col button{
+  width: 100%;
+  padding: 14px 0;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #ffc451;
+  border-radius: 6px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+.price-col button:hover{
+  background: #ffc451;
+  color: #151515;
+
+}
+/*--------------------------------------------------------------
+# Packages_Subscribe
+--------------------------------------------------------------*/
+#subscribe {
+  background: url("../img/package-bg.jpg") top center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#subscribe .main-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  margin-top: 40px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#subscribe .left-part {
+  text-align: center;
+  margin-bottom: 30px;
+}
+#subscribe form {
+  background: rgba(0, 0, 0, 0.836);
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+}
+#subscribe label{
+  color: #ffc451;
+}
+#subscribe .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ffc451;
+
+}
+
+#subscribe .info {
+  display: flex;
+  flex-direction: column;
+}
+
+#subscribe input {
+  padding: 10px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+#subscribe select {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #ffc451;
+}
+
+#subscribe option {
+  background: black; 
+  border: none;
+}
+
+#subscribe .btn-item, button {
+  padding: 10px 5px;
+  margin-top: 20px;
+  border-radius: 5px; 
+  border: none;
+  background: transparent; 
+  border: 1px #ffc451 solid;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+}
+
+#subscribe .btn-item {
+  display: inline-block;
+  margin: 20px 5px 0;
+}
+
+#subscribe button {
+  width: 100%;
+}
+
+#subscribe button:hover, .btn-item:hover {
+  background: #ffc451;
+  transition: 0.8s;
+  color: #343a40;
+}
+
+@media (max-width: 768px) {
+  #subscribe .main-block {
+    flex-direction: column;
+    
+  }
+
+  #subscribe .left-part .fa-graduation-cap {
+    font-size: 100px;
+  }
+
+  #subscribe form {
+    margin-top: 20px;
+    height: 100%;
+  }
+}
+/*--------------------------------------------------------------
+# Theater_Tickets
+--------------------------------------------------------------*/
+#theater_tickets {
+  background: url("../img/movie_theaters/bg.jpg") top center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#theater_tickets .main-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  margin-top: 40px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#theater_tickets .left-part {
+  text-align: center;
+  margin-bottom: 30px;
+}
+#theater_tickets form {
+  background: rgb(50, 50, 50);
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+}
+#theater_tickets label{
+  color: #ffc451;
+}
+#theater_tickets .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ffc451;
+
+}
+
+#theater_tickets .info {
+  display: flex;
+  flex-direction: column;
+}
+#theater_tickets input {
+  padding: 10px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+
+#theater_tickets .subscribe {
+ 
+  padding-top: 25px;
+  right: 20px;
+  transform: translateY(-50%);
+  margin-bottom: -25px;
+}
+#theater_tickets select {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #ffc451;
+  
+}
+
+
+#theater_tickets option {
+  background: black; 
+  border: none;
+}
+
+#theater_tickets .btn-item, button {
+  padding: 10px 5px;
+  margin-top: 20px;
+  border-radius: 5px; 
+  border: none;
+  background: transparent; 
+  border: 1px #ffc451 solid;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+}
+
+#theater_tickets .btn-item {
+  display: inline-block;
+  margin: 20px 5px 0;
+}
+
+#theater_tickets button {
+  width: 100%;
+}
+#theater_tickets .counter {
+  display: flex;
+  align-items: center;
+}
+
+#theater_tickets .increment {
+  width: 5%;
+}
+
+#theater_tickets .decrement {
+  width: 5%;
+}
+
+#theater_tickets #counter {
+  font-size: 24px;
+  color: #ffc551c0;
+  margin: 0 10px;
+}
+#theater_tickets .want{
+  color: #ffc5517e;
+}
+#theater_tickets .want:hover{
+  color: #ffc551d3;
+  transition: 0.3s;
+
+}
+#theater_tickets .reset{
+  width: 14%;
+  margin-bottom: 15px;
+}
+#counter {
+  font-size: 24px;
+  margin: 0 15px;
+}
+#theater_tickets button:hover, .btn-item:hover {
+  background: #ffc451;
+  transition: 0.8s;
+  color: #343a40;
+}
+
+@media (max-width: 768px) {
+  #theater_tickets .main-block {
+    flex-direction: column;
+    
+  }
+
+  #theater_tickets .left-part .fa-graduation-cap {
+    font-size: 100px;
+  }
+
+  #theater_tickets form {
+    margin-top: 20px;
+    height: 100%;
+  }
+  #theater_tickets .increment{
+    width: 20%;
+  }
+  #theater_tickets .decrement{
+    width: 20%;
+  }
+  #theater_tickets .reset{
+    width: 50%;
+    margin-bottom: 15px;
+  }
+}
+/*--------------------------------------------------------------
+# Park_Tickets
+--------------------------------------------------------------*/
+#park_tickets {
+  background: url("../img/amusement_park/bg.jpg") top center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#park_tickets .main-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  margin-top: 40px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#park_tickets .left-part {
+  text-align: center;
+  margin-bottom: 30px;
+}
+#park_tickets form {
+  background: rgb(50, 50, 50);
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+}
+#park_tickets label{
+  color: #ffc451;
+}
+#park_tickets .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ffc451;
+
+}
+
+#park_tickets .info {
+  display: flex;
+  flex-direction: column;
+}
+#park_tickets input {
+  padding: 10px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+#park_tickets .subscribe {
+ 
+  padding-top: 25px;
+  right: 20px;
+  transform: translateY(-50%);
+  margin-bottom: -25px;
+}
+#park_tickets select {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #ffc451;
+  
+}
+#park_tickets option {
+  background: black; 
+  border: none;
+}
+#park_tickets optgroup.transparent-optgroup {
+  background-color: black;
+  color: white;
+}
+
+#park_tickets optgroup.transparent-optgroup option {
+  background-color: black;
+  color: #ffc451;
+}
+#park_tickets .btn-item, button {
+  padding: 10px 5px;
+  margin-top: 20px;
+  border-radius: 5px; 
+  border: none;
+  background: transparent; 
+  border: 1px #ffc451 solid;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+}
+
+#park_tickets .btn-item {
+  display: inline-block;
+  margin: 20px 5px 0;
+}
+
+#park_tickets button {
+  width: 100%;
+}
+#park_tickets .counter {
+  display: flex;
+  align-items: center;
+}
+
+#park_tickets .increment {
+  width: 5%;
+}
+
+#park_tickets .decrement {
+  width: 5%;
+}
+
+#park_tickets #counter {
+  font-size: 24px;
+  color: #ffc551c0;
+  margin: 0 10px;
+}
+#park_tickets .want{
+  color: #ffc5517e;
+}
+#park_tickets .want:hover{
+  color: #ffc551d3;
+  transition: 0.3s;
+
+}
+#park_tickets .reset{
+  width: 14%;
+  margin-bottom: 15px;
+}
+#park_tickets button:hover, .btn-item:hover {
+  background: #ffc451;
+  transition: 0.8s;
+  color: #343a40;
+}
+
+@media (max-width: 768px) {
+  #park_tickets .main-block {
+    flex-direction: column;
+    
+  }
+
+  #park_tickets .left-part .fa-graduation-cap {
+    font-size: 100px;
+  }
+
+  #park_tickets form {
+    margin-top: 20px;
+    height: 100%;
+  }
+  #park_tickets .increment{
+    width: 20%;
+  }
+  #park_tickets .decrement{
+    width: 20%;
+  }
+  #park_tickets .reset{
+    width: 50%;
+    margin-bottom: 15px;
+  }
+}
+/*--------------------------------------------------------------
+# Event_Tickets
+--------------------------------------------------------------*/
+#event_tickets {
+  background: url("../img/event/bg.jpg") top center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#event_tickets .main-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  margin-top: 40px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#event_tickets .left-part {
+  text-align: center;
+  margin-bottom: 30px;
+}
+#event_tickets form {
+  background: rgb(50, 50, 50);
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+}
+#event_tickets label{
+  color: #ffc451;
+}
+#event_tickets .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ffc451;
+
+}
+
+#event_tickets .info {
+  display: flex;
+  flex-direction: column;
+}
+#event_tickets input {
+  padding: 10px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+#event_tickets .subscribe {
+ 
+  padding-top: 25px;
+  right: 20px;
+  transform: translateY(-50%);
+  margin-bottom: -25px;
+}
+#event_tickets select {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #ffc451;
+  
+}
+#event_tickets option {
+  background: black; 
+  border: none;
+}
+#event_tickets optgroup.transparent-optgroup {
+  background-color: black;
+  color: white;
+}
+
+#event_tickets optgroup.transparent-optgroup option {
+  background-color: black;
+  color: #ffc451;
+}
+#event_tickets .btn-item, button {
+  padding: 10px 5px;
+  margin-top: 20px;
+  border-radius: 5px; 
+  border: none;
+  background: transparent; 
+  border: 1px #ffc451 solid;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+}
+
+#event_tickets .btn-item {
+  display: inline-block;
+  margin: 20px 5px 0;
+}
+
+#event_tickets button {
+  width: 100%;
+}
+#event_tickets .counter {
+  display: flex;
+  align-items: center;
+}
+
+#event_tickets .increment {
+  width: 5%;
+}
+
+#event_tickets .decrement {
+  width: 5%;
+}
+
+#event_tickets #counter {
+  font-size: 24px;
+  color: #ffc551c0;
+  margin: 0 10px;
+}
+#event_tickets .want{
+  color: #ffc5517e;
+}
+#event_tickets .want:hover{
+  color: #ffc551d3;
+  transition: 0.3s;
+
+}
+#event_tickets .reset{
+  width: 14%;
+  margin-bottom: 15px;
+}
+#event_tickets button:hover, .btn-item:hover {
+  background: #ffc451;
+  transition: 0.8s;
+  color: #343a40;
+}
+
+@media (max-width: 768px) {
+  #event_tickets .main-block {
+    flex-direction: column;
+    
+  }
+
+  #event_tickets .left-part .fa-graduation-cap {
+    font-size: 100px;
+  }
+
+  #event_tickets form {
+    margin-top: 20px;
+    height: 100%;
+  }
+  #event_tickets .increment{
+    width: 20%;
+  }
+  #event_tickets .decrement{
+    width: 20%;
+  }
+  #event_tickets .reset{
+    width: 50%;
+    margin-bottom: 15px;
+  }
+}
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: black;
+  padding: 0 0 30px 0;
+  color: #fff;
+  font-size: 14px;
+}
+.footer-info .img-fluid{
+  max-width: 156px;
+}
+#footer .footer-top {
+  background: #151515;
+  border-bottom: 1px solid #222222;
+  padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-size: 28px;
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#footer .footer-top .footer-info h3 span {
+  color: #ffc451;
+}
+
+#footer .footer-top .footer-info p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+}
+
+#footer .footer-top .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #292929;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 4px;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .footer-top .social-links a:hover {
+  background: #ffc451;
+  color: #151515;
+  text-decoration: none;
+}
+
+#footer .footer-top h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul i {
+  padding-right: 2px;
+  color: #ffc451;
+  font-size: 18px;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: #fff;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  color: #ffc451;
+}
+
+#footer .footer-top .footer-newsletter form {
+  margin-top: 30px;
+  background: #fff;
+  padding: 6px 10px;
+  position: relative;
+  border-radius: 4px;
+}
+
+#footer .footer-top .footer-newsletter form input[type=email] {
+  border: 0;
+  padding: 4px;
+  width: calc(100% - 110px);
+}
+
+#footer .footer-top .footer-newsletter form input[type=submit] {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  bottom: 0;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 0 20px;
+  background: #ffc451;
+  color: #151515;
+  transition: 0.3s;
+  border-radius: 0 4px 4px 0;
+}
+
+#footer .footer-top .footer-newsletter form input[type=submit]:hover {
+  background: #ffcd6b;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+#footer .credits {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
